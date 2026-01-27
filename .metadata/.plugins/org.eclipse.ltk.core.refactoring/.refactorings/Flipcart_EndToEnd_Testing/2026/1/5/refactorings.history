@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Flipcart_EndToEnd_Testing/src/test/resources/config.Properties&apos; to &apos;Properties&apos;" description="Rename resource &apos;config.Properties&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/test/resources/config.Properties" name="Properties" stamp="1769451430522" updateReferences="true"/>
-</session>

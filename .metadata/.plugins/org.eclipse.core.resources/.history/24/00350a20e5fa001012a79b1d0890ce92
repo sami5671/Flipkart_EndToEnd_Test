@@ -1,8 +1,0 @@
-package com.BaseClass;
-
-public class Library {
-	public void launchapplication() {
-		// TODO Auto-generated method stub
-
-	}
-}
