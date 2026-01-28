@@ -1,5 +1,69 @@
 package com.Pages;
 
-public class SearchPage {
+import java.time.Duration;
+import java.util.List;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.BaseClass.Library;
+import com.ReusableFunctions.SeleniumReusable;
+
+
+public class SearchPage extends Library{
+	
+	SeleniumReusable se;
+	WebDriverWait wait;
+
+	
+	public SearchPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+	}
+	
+	@FindBy(xpath="//input[@name='q']")
+	WebElement Searchtext;
+	
+	@FindBy(xpath="//html[@lang='en-IN']")
+	WebElement Homepage;
+	
+	// ✅ Use product links as "results loaded" indicator
+    @FindBy(css = "a[href*='/p/'], a[href*='pid=']")
+    List<WebElement> productLinks;
+	
+	
+	public void Search(String Text) {
+		se = new SeleniumReusable(driver);
+		wait.until(ExpectedConditions.visibilityOf(Searchtext));
+		se.EnterValue(Searchtext, Text);
+	}
+	
+	public void Clicksearch() {
+		Searchtext.sendKeys(Keys.ENTER);
+	}
+	
+	public void homescreen() {
+        wait.until(ExpectedConditions.visibilityOf(Homepage));
+		System.out.println("Home page: " + Homepage.isDisplayed());
+	}
+	
+	public void Result() {
+		// ✅ wait for search page URL
+        wait.until(ExpectedConditions.or(
+            ExpectedConditions.urlContains("search"),
+            ExpectedConditions.urlContains("q=")
+        ));
+
+        // ✅ wait until at least 1 product appears
+        wait.until(driver -> productLinks.size() > 0);
+
+        System.out.println("Search Results Loaded: " + (productLinks.size() > 0));
+        System.out.println("Title is: " + driver.getTitle());
+	}
 }

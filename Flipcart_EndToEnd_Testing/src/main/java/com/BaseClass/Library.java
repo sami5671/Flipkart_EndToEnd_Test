@@ -18,7 +18,7 @@ public class Library {
 	public static Properties prop;
 	public void launchapplication() throws IOException {
 		
-		FileInputStream input = new FileInputStream("/Flipcart_EndToEnd_Testing/src/test/resources/Properties/Config.Property");
+		FileInputStream input = new FileInputStream("src/test/resources/Properties/Config.Property");
 		prop = new Properties();
 		prop.load(input);
 		

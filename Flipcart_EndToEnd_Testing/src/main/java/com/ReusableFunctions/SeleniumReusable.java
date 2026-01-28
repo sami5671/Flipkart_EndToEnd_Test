@@ -2,6 +2,7 @@ package com.ReusableFunctions;
 
 import java.io.File;
 
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -12,7 +13,8 @@ import com.BaseClass.Library;
 
 public class SeleniumReusable extends Library{
 	
-	private void SeleniumReusable(WebDriver driver) {
+
+	public SeleniumReusable(WebDriver driver) {
 		this.driver = driver;
 	}
 	
@@ -54,5 +56,7 @@ public class SeleniumReusable extends Library{
 			System.out.println("Screenshot not found");
 		}
 	}
+	
+	
 	
 }
