@@ -36,6 +36,12 @@ public class SearchPage extends Library{
 	// ✅ Use product links as "results loaded" indicator
     @FindBy(css = "a[href*='/p/'], a[href*='pid=']")
     List<WebElement> productLinks;
+    
+    @FindBy(xpath = "//*[@id=\'container\']/div/div[3]/div[1]/div[2]/div/div/div/div/a/div[2]/div[1]")
+    List<WebElement> Entireresult;
+    
+    @FindBy(xpath = "//*[@id=\'container\']/div/div[3]/div[1]/div[2]/div[4]/div/div/div")
+    WebElement ThirdResult;
 	
 	
 	public void Search(String Text) {
@@ -65,5 +71,16 @@ public class SearchPage extends Library{
 
         System.out.println("Search Results Loaded: " + (productLinks.size() > 0));
         System.out.println("Title is: " + driver.getTitle());
+	}
+	
+	public void printentireresult() {
+		System.out.println("----------Here is Entire results-----");
+		se.MultipleGettext(Entireresult);
+		System.out.println("----------END of Entire results-----");
+	}
+	
+	public void Print3rdresult() {
+		System.out.println("----------Third value -----");
+		se.Getvalue(ThirdResult);
 	}
 }

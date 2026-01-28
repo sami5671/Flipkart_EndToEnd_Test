@@ -1,7 +1,7 @@
 package com.ReusableFunctions;
 
 import java.io.File;
-
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -57,6 +57,20 @@ public class SeleniumReusable extends Library{
 		}
 	}
 	
+	public void MultipleGettext(List<WebElement> element) {
+		List<WebElement>text=element;
+		System.out.println(text.size());
+		
+		for(WebElement textcount:text) {
+			String Totallist = textcount.getText();
+			System.out.println("**************************************************8");
+			System.out.println(Totallist);
+		}
+	}
 	
+	public void Getvalue(WebElement element) {
+		String Text = element.getText();
+		System.out.println(Text);
+	} 
 	
 }
