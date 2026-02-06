@@ -57,5 +57,4 @@ public class SearchMobile_Testcase extends Library {
 	public void print_the_thrid_result_and_keep_it_in_the_console() {
 	    sp.Print3rdresult();
 	}
-
 }

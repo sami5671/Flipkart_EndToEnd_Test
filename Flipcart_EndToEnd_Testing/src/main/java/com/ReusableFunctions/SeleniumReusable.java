@@ -4,10 +4,12 @@ import java.io.File;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.BaseClass.Library;
 
@@ -73,4 +75,18 @@ public class SeleniumReusable extends Library{
 		System.out.println(Text);
 	} 
 	
+	public void dropdown(WebElement element, String Text) {
+		
+		Select drp = new Select(element);
+		drp.selectByValue(Text);
+
+	}
+	public void Scrolldown(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click()", element);
+	}
+	
+	public void waits() throws InterruptedException{
+		Thread.sleep(2000);
+	}
 }
