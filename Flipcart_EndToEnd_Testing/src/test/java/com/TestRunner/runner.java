@@ -11,7 +11,8 @@ import io.cucumber.junit.CucumberOptions;
     plugin = {
         "pretty",
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:target/ExtentReport/"
-    },
+    }, 
+    tags = "@tc002",
     monochrome = true
 )
 public class runner { }

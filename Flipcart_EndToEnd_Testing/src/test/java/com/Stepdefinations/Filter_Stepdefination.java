@@ -16,6 +16,7 @@ public class Filter_Stepdefination extends Library{
 	
 	@Then("Select Minimum and Maximum Amount")
 	public void select_minimum_and_maximum_amount() throws InterruptedException {
+		
 		fp = new Filter_page(driver);
 		se = new SeleniumReusable(driver);
 	    
