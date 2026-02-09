@@ -10,9 +10,9 @@ import io.cucumber.junit.CucumberOptions;
     glue = {"com.Stepdefinations"},
     plugin = {
         "pretty",
-        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:target/ExtentReport/"
+        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
     }, 
-    tags = "@tc002",
+    tags = "",
     monochrome = true
 )
 public class runner { }

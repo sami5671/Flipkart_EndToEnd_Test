@@ -49,18 +49,6 @@ public class SeleniumReusable extends Library{
 		}
 	}
 	
-	// takes screenshot of the test case 
-	public void screenshot(String path) {
-		TakesScreenshot TS = (TakesScreenshot)driver;
-		File source = TS.getScreenshotAs(OutputType.FILE);
-		
-		try {
-			FileUtils.copyFile(source, new File(path));
-		} catch (Exception e) {
-			System.out.println("Screenshot not found");
-		}
-	}
-	
 	public void MultipleGettext(List<WebElement> element) {
 		List<WebElement>text=element;
 		System.out.println(text.size());
@@ -102,5 +90,16 @@ public class SeleniumReusable extends Library{
 		act.moveToElement(element).click().build().perform();
 	}
 	
+	// takes screenshot of the test case 
+		public void screenshot(String path) {
+			TakesScreenshot TS = (TakesScreenshot)driver;
+			File source = TS.getScreenshotAs(OutputType.FILE);
+			
+			try {
+				FileUtils.copyFile(source, new File(path));
+			} catch (Exception e) {
+				System.out.println("Screenshot not found");
+			}
+		}
 	
 }

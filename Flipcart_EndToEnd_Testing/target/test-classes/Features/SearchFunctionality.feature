@@ -29,4 +29,20 @@ Given User to move to the Fashion link
 When Cursor to move to the Kids link 
 And Move to girls dress and click 
 And Click the price high to low link 
-Then It should display the relevent details and get the title 
+Then It should display the relevent details and get the title
+
+
+@tc003
+Scenario Outline: To validate the search functionality with different values
+
+Given Enter the "<searchtext>" in the search field
+When click the search button
+Then It should navigate to the next page and display the corresponding page
+
+Examples: 
+|searchtext|
+|Mobile|
+|Tv|
+|Speaker|
+|Shirt| 
+
