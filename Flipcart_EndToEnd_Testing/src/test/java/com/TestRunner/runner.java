@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
         "pretty",
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
     }, 
-    tags = "",
+    tags = "@tc004",
     monochrome = true
 )
 public class runner { }

@@ -1,7 +1,9 @@
 package com.ReusableFunctions;
 
 import java.io.File;
+import java.time.Duration;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,7 +12,9 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.BaseClass.Library;
 
@@ -101,5 +105,32 @@ public class SeleniumReusable extends Library{
 				System.out.println("Screenshot not found");
 			}
 		}
+		
+		public void windowhandeling(WebElement element) {
+		    String parent = driver.getWindowHandle();
+		    element.click();
+
+		    new WebDriverWait(driver, Duration.ofSeconds(10))
+		            .until(ExpectedConditions.numberOfWindowsToBe(2));
+
+		    Set<String> all = driver.getWindowHandles();
+		    for (String win : all) {
+		        if (!win.equals(parent)) {
+		            driver.switchTo().window(win);
+		            break;
+		        }
+		    }
+		}
+		
+		public void waitForClickable(WebElement element, int seconds) {
+		    new WebDriverWait(driver, Duration.ofSeconds(seconds))
+		            .until(ExpectedConditions.elementToBeClickable(element));
+		}
+
+		public void waitForVisible(WebElement element, int seconds) {
+		    new WebDriverWait(driver, Duration.ofSeconds(seconds))
+		            .until(ExpectedConditions.visibilityOf(element));
+		}
+
 	
 }

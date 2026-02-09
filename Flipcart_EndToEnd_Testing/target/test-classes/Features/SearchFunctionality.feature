@@ -46,3 +46,15 @@ Examples:
 |Speaker|
 |Shirt| 
 
+@tc004
+Scenario: To validate upto addcart functionality
+
+Given User can move to the login link 
+When User can click the flipkart plus zone 
+And Mouse move to the Home&Furniture link 
+And Going to click the wall lamp 
+And Scroll down the page and click one particular result 
+And Enter delivery pincode and click the check link 
+Then Pincode should be checked and displayed and verify the titles
+
+
