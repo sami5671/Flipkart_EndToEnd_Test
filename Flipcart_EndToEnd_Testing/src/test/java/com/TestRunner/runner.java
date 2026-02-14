@@ -15,7 +15,7 @@ import io.cucumber.testng.CucumberOptions;
         "pretty",
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
     }, 
-    tags = "@tc005",
+    tags = "@tc004",
     monochrome = true
 )
 public class runner extends AbstractTestNGCucumberTests {
