@@ -6,7 +6,7 @@ Given Launch the Flipkart Application
 When Close the popup 
 Then It should Navigate to the Home page
 
-@tc001 @Regression
+@tc001 
 Scenario: To validate the Search functionality
 
 Given User enter the Text in the Search field 
@@ -32,7 +32,7 @@ And Click the price high to low link
 Then It should display the relevent details and get the title
 
 
-@tc003
+@tc003 @Regression
 Scenario Outline: To validate the search functionality with different values
 
 Given Enter the "<searchtext>" in the search field
@@ -58,7 +58,7 @@ And Enter delivery pincode and click the check link
 Then Pincode should be checked and displayed and verify the titles
 
 
-@tc005
+@tc005 @Regression
 Scenario: TO get the title and price from search result
 
 Given Enter the search text in the search field
