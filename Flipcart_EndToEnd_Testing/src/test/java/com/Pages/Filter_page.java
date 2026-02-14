@@ -18,10 +18,10 @@ public class Filter_page extends Library{
 		se = new SeleniumReusable(driver);
 	}
 	
-	@FindBy(xpath="//*[@id=\'container\']/div/div[3]/div[1]/div[1]/div/div[1]/div/section[4]/div[4]/div[1]/select")
+	@FindBy(xpath="//*[@id=\'container\']/div/div[3]/div[1]/div[1]/div/div[1]/div/section[3]/div[4]/div[1]/select")
 	WebElement MinimumAmount;
 	
-	@FindBy(xpath="//*[@id=\'container\']/div/div[3]/div[1]/div[1]/div/div[1]/div/section[4]/div[4]/div[3]/select")
+	@FindBy(xpath="//*[@id=\'container\']/div/div[3]/div[1]/div[1]/div/div[1]/div/section[3]/div[4]/div[3]/select")
 	WebElement MaximumAmount;
 	
 	@FindBy(xpath = "//div[text()='MOTOROLA']/preceding-sibling::div")

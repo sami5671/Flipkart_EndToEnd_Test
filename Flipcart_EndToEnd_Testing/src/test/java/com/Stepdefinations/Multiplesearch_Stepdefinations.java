@@ -22,7 +22,6 @@ public class Multiplesearch_Stepdefinations extends Library {
 
 	@When("click the search button")
 	public void click_the_search_button() {
-		
 		ms.clicksearch();
 	}
 

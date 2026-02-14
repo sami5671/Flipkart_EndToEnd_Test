@@ -58,3 +58,13 @@ And Enter delivery pincode and click the check link
 Then Pincode should be checked and displayed and verify the titles
 
 
+@tc005
+Scenario: TO get the title and price from search result
+
+Given Enter the search text in the search field
+When Click the search icon 
+Then It should display the search result and get the title and price
+
+
+
+

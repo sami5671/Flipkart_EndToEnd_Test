@@ -18,6 +18,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.BaseClass.Library;
 
+import io.cucumber.java.Scenario;
+
 public class SeleniumReusable extends Library{
 	
 	Actions act;
@@ -132,5 +134,15 @@ public class SeleniumReusable extends Library{
 		            .until(ExpectedConditions.visibilityOf(element));
 		}
 
+		//screenshot
+		public void attachscreenshot(Scenario CucumberScenario) {
+			final byte[] screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+			CucumberScenario.attach(screenshot, "image/png", "FlipkartAutomation");
+		}
+		
+		public void closeapp() {
+			driver.close();
+			System.out.println("Browser closed");
+		}
 	
 }
