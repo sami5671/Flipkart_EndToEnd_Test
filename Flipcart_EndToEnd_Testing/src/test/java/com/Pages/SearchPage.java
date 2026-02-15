@@ -1,6 +1,8 @@
 package com.Pages;
 
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.Keys;
@@ -13,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.BaseClass.Library;
 import com.ReusableFunctions.SeleniumReusable;
+import com.Utilities.ExcelUtility;
 
 
 public class SearchPage extends Library{
@@ -25,6 +28,8 @@ public class SearchPage extends Library{
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		
+	
 	}
 	
 	@FindBy(xpath="//input[@name='q']")
@@ -83,4 +88,34 @@ public class SearchPage extends Library{
 		System.out.println("----------Third value -----");
 		se.Getvalue(ThirdResult);
 	}
+	
+	public void Searchwithexcel() throws IOException, InterruptedException {
+		
+		se = new SeleniumReusable(driver); 
+		ExcelUtility excel = new ExcelUtility();
+		
+		for (int i = 0; ; i++) {
+	        String keyword = excel.excelRead("TestData", i, 0);
+	        if (keyword == null || keyword.trim().isEmpty()) break;
+
+	        se.waitForVisible(Searchtext, 10);
+	        Searchtext.clear();
+	        se.EnterValue(Searchtext, keyword);
+
+	        Searchtext.sendKeys(Keys.ENTER);
+	        se.waits();
+
+	        se.navigateback();
+
+	        // ✅ IMPORTANT: wait again after back
+	        se.waitForVisible(Searchtext, 10);
+	    }
+	}
+	
+	
+	
+	
+	
+	
+	
 }

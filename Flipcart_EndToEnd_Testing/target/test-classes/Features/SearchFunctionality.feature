@@ -65,6 +65,12 @@ Given Enter the search text in the search field
 When Click the search icon 
 Then It should display the search result and get the title and price
 
+@tc006
+Scenario: To test the search fuctionality with excel sheet
+
+Given Enter Search Text In the Search Field
+When Click search Icon
+Then It Should Display The Relevent Result
 
 
 

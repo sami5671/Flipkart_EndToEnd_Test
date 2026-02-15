@@ -144,5 +144,9 @@ public class SeleniumReusable extends Library{
 			driver.close();
 			System.out.println("Browser closed");
 		}
+		
+		public void navigateback() {
+			driver.navigate().back();
+		}
 	
 }

@@ -80,6 +80,20 @@
 		  <version>7.10.2</version>
 		  <scope>test</scope>
 		</dependency>
+		
+		<!-- Apache POI Core -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>5.3.0</version>
+		</dependency>
+		
+		<!-- Apache POI Excel (.xlsx) -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>5.3.0</version>
+		</dependency>
 
         <!-- Extent Reports -->
         <dependency>
@@ -132,6 +146,20 @@
             </plugin>
 
         </plugins>
+        
+         <!--    Open your pom.xml and make sure you are using normal Maven layout (usually no need to add anything).
+But if you have custom build settings, add this under <build>: -->
+     
+      
+		  <testResources>
+		    <testResource>
+		      <directory>src/test/resources</directory>
+		      <filtering>false</filtering>
+		    </testResource>
+		  </testResources>
+
     </build>
+    
+   
 
 </project>
