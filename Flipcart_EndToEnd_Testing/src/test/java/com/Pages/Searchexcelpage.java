@@ -40,9 +40,18 @@ public class Searchexcelpage extends Library{
 			se = new SeleniumReusable(driver); 
 			ExcelUtility excel = new ExcelUtility();
 			
+			logger.info("Starting Search with Excel keywords...");
+			
 			for (int i = 0; ; i++) {
 		        String keyword = excel.excelRead("TestData", i, 0);
-		        if (keyword == null || keyword.trim().isEmpty()) break;
+		        
+		        
+		        if (keyword == null || keyword.trim().isEmpty()) {
+		            logger.info("No more keywords found. Stopping loop at row: " + i);
+		            break;
+		        }
+
+		        logger.info("Searching keyword: " + keyword + " (Row: " + i + ")");
 	
 		        se.waitForVisible(Searchtext, 10);
 		        Searchtext.clear();
@@ -52,16 +61,20 @@ public class Searchexcelpage extends Library{
 		        se.waits();
 		        
 		        if(afterSearchMenuBar.isDisplayed()) {
+		        	logger.info("Result displayed for keyword: " + keyword + " => PASSED");
 		        	excel.excelWrite("TestData", i, 1, "Passed");
 		        }else {
+		            logger.warn("Result NOT displayed for keyword: " + keyword + " => FAILED");
 		        	excel.excelWrite("TestData", i, 1, "Failed");
 		        }
-	
+		        logger.info("Navigating back to home page...");
 		        se.navigateback();
 	
 		        // ✅ IMPORTANT: wait again after back
 		        se.waitForVisible(Searchtext, 10);
 		    }
+			
+			 logger.info("Search with Excel completed.");
 		}
 	
 }

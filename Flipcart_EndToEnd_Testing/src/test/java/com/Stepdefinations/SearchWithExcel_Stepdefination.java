@@ -17,6 +17,7 @@ public class SearchWithExcel_Stepdefination extends Library{
 	
 	@Given("Enter Search Text In the Search Field")
 	public void enter_search_text_in_the_search_field() throws IOException, InterruptedException {
+		logger.info("Step: Enter Search Text In the Search Field");
 		Sexcelp = new Searchexcelpage(driver);
 		Sexcelp.Searchwithexcel();
 		
@@ -24,6 +25,7 @@ public class SearchWithExcel_Stepdefination extends Library{
 
 	@When("Click search Icon")
 	public void click_search_icon() {
+	    logger.info("Step: Click search Icon (Taking Screenshot)");
 		se = new SeleniumReusable(driver);
 		se.screenshot("src/test/resources/Screenshots/excelsearch.png");
 	   
@@ -31,6 +33,7 @@ public class SearchWithExcel_Stepdefination extends Library{
 
 	@Then("It Should Display The Relevent Result")
 	public void it_should_display_the_relevent_result() {
+	    logger.info("Step: It Should Display The Relevant Result (Printing Title)");
 	    se.gettitle();
 	}
 
