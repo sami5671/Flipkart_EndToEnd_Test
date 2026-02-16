@@ -47,6 +47,7 @@ public class SearchPage extends Library{
     
     @FindBy(xpath = "//*[@id=\'container\']/div/div[3]/div[1]/div[2]/div[4]/div/div/div")
     WebElement ThirdResult;
+    
 	
 	
 	public void Search(String Text) {
@@ -88,34 +89,5 @@ public class SearchPage extends Library{
 		System.out.println("----------Third value -----");
 		se.Getvalue(ThirdResult);
 	}
-	
-	public void Searchwithexcel() throws IOException, InterruptedException {
-		
-		se = new SeleniumReusable(driver); 
-		ExcelUtility excel = new ExcelUtility();
-		
-		for (int i = 0; ; i++) {
-	        String keyword = excel.excelRead("TestData", i, 0);
-	        if (keyword == null || keyword.trim().isEmpty()) break;
-
-	        se.waitForVisible(Searchtext, 10);
-	        Searchtext.clear();
-	        se.EnterValue(Searchtext, keyword);
-
-	        Searchtext.sendKeys(Keys.ENTER);
-	        se.waits();
-
-	        se.navigateback();
-
-	        // ✅ IMPORTANT: wait again after back
-	        se.waitForVisible(Searchtext, 10);
-	    }
-	}
-	
-	
-	
-	
-	
-	
 	
 }
